@@ -203,7 +203,7 @@ JNIEXPORT jboolean JNICALL Java_com_tencent_ncnnyolov7_NcnnYolov7_loadModel(JNIE
 // public native boolean openCamera(int facing);
 JNIEXPORT jboolean JNICALL Java_com_tencent_ncnnyolov7_NcnnYolov7_openCamera(JNIEnv* env, jobject thiz, jint facing)
 {
-    if (facing < 0 || facing > 1)
+    if (facing < 0 || facing > 2)
         return JNI_FALSE;
 
     __android_log_print(ANDROID_LOG_DEBUG, "ncnn", "openCamera %d", facing);

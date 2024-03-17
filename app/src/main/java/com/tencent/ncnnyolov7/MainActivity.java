@@ -36,7 +36,7 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback
     public static final int REQUEST_CAMERA = 100;
 
     private NcnnYolov7 ncnnyolov7 = new NcnnYolov7();
-    private int facing = 0;
+    private int facing = 2;
 
     private Spinner spinnerModel;
     private Spinner spinnerCPUGPU;

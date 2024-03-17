@@ -250,7 +250,11 @@ int NdkCamera::open(int _camera_facing)
                 ACameraMetadata_free(camera_metadata);
                 continue;
             }
-
+            if (camera_facing == 2 && facing != ACAMERA_LENS_FACING_EXTERNAL)
+            {
+                ACameraMetadata_free(camera_metadata);
+                continue;
+            }
             camera_id = id;
 
             // query orientation
@@ -473,6 +477,9 @@ void NdkCameraWindow::on_image_render(cv::Mat& rgb) const
 
 void NdkCameraWindow::on_image(const unsigned char* nv21, int nv21_width, int nv21_height) const
 {
+    if(win == NULL){
+        return;
+    }
     // resolve orientation from camera_orientation and accelerometer_sensor
     {
         if (!sensor_event_queue)
